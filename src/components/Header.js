@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
-import SignInSignUp from './SignInSignUp'; // Import the updated SignInSignUp component
-import './Header.css'; // Importing Header CSS
+import SignInSignUp from './SignInSignUp'; 
+import './Header.css'; 
 
 const Header = () => {
   const [openSignIn, setOpenSignIn] = useState(false); // State to manage SignIn/SignUp dialog
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleSignInOpen = () => {
-    setOpenSignIn(true); // Open SignIn/SignUp dialog
+    setOpenSignIn(true); 
   };
 
   const handleSignInClose = () => {
-    setOpenSignIn(false); // Close SignIn/SignUp dialog
+    setOpenSignIn(false); 
   };
 
   return (
@@ -51,7 +52,8 @@ const Header = () => {
       <Dialog open={openSignIn} onClose={handleSignInClose}>
         <DialogTitle>Sign In / Sign Up</DialogTitle>
         <DialogContent>
-          <SignInSignUp onClose={handleSignInClose} />
+          {/* Pass navigate to SignInSignUp */}
+          <SignInSignUp onClose={handleSignInClose} navigate={navigate} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleSignInClose} color="primary">

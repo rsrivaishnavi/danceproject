@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../config/firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { TextField, Button, Box } from "@mui/material";
@@ -6,14 +7,19 @@ import { TextField, Button, Box } from "@mui/material";
 const SignInSignUp = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSigningUp, setIsSigningUp] = useState(false); // Toggle between Sign In and Sign Up
+  const [isSigningUp, setIsSigningUp] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSuccess = () => {
+    onClose();
+    navigate("/profile");
+  };
 
   const handleSignIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Signed in successfully!");
-      onClose();
+      handleSuccess();
     } catch (error) {
       setError("Error signing in: " + error.message);
     }
@@ -22,22 +28,23 @@ const SignInSignUp = ({ onClose }) => {
   const handleSignUp = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      alert("Account created successfully!");
-      onClose();
+      handleSuccess();
     } catch (error) {
       setError("Error signing up: " + error.message);
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault(); // Prevent default form submission
     try {
       await signInWithPopup(auth, googleProvider);
-      alert("Signed in with Google!");
-      onClose();
+      handleSuccess();
     } catch (error) {
+        
       setError("Error signing in with Google: " + error.message);
     }
   };
+  
 
   return (
     <Box
@@ -47,6 +54,11 @@ const SignInSignUp = ({ onClose }) => {
         flexDirection: 'column',
         gap: 2,
         padding: 2,
+        width: '400px',
+        backgroundColor: 'white', // Keep background white
+        color: 'black', // Set text color to black for contrast
+        borderRadius: '10px',
+        margin: '0 auto',
       }}
     >
       <h2>{isSigningUp ? "Sign Up" : "Sign In"}</h2>

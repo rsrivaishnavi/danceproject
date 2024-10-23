@@ -1,15 +1,12 @@
 /* src/App.css */
-
 /* Global styling for the entire app */
 .App {
   text-align: center;
-  padding: 20px; /* Top and bottom padding */
-  /* padding-left: 10px; 
-  padding-right: 10px;  */
-  max-width: 1200px; /* Limit the max width */
-  margin: 0 auto; /* Center the content */
-  /* box-sizing: border-box;  */
+  padding: 20px 10px; /* Reduced left and right padding */
+  max-width: 4000px; /* Reduced max width */
+  margin: 0 auto;
 }
+
 
 /* Style for the top bar */
 .top-bar {

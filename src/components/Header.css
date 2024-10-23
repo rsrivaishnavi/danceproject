@@ -2,7 +2,7 @@
   display: flex; /* Align items in a row */
   align-items: center; /* Center items vertically */
   justify-content: space-between; /* Space out items */
-  padding: 20px;
+  padding: 0px;
 }
 
 .header nav ul {
