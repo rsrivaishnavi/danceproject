@@ -1,0 +1,38 @@
+.contact-us {
+    background-color: maroon;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-info {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    display: inline;
+    margin: 0 10px;
+    color: #ccc;
+  }
+  
+  .social-icons a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #bbb;
+  }
+  
+  .copyright {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #bbb;
+  }
+  

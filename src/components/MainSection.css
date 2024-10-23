@@ -1,0 +1,50 @@
+.main-section {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Adds space between images */
+  }
+  
+  .image-gallery img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    height: auto; /* Maintain auto height for all images */
+  }
+  
+  /* Hover effect for all images */
+  .image-gallery img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+  
+  /* Make dance4 larger with increased height */
+  .image-gallery img:nth-child(1) {
+    width: 30%; /* Larger width for dance4 */
+    height: 300px; /* Increased height for dance4 */
+    object-fit: cover; /* Ensures the image fits within the specified height */
+  }
+  
+  /* Make dance5 larger with further increased height */
+  .image-gallery img:nth-child(5) {
+    width: 25%; /* Larger width for dance5 */
+    height: 350px; /* Further increased height for dance5 */
+    object-fit: cover; /* Ensures the image fits within the specified height */
+  }
+  
+  /* Smaller images for center ones */
+  .image-gallery img:nth-child(2),
+  .image-gallery img:nth-child(3),
+  .image-gallery img:nth-child(4) {
+    width: 15%; /* Set smaller width for center images */
+    height: auto; /* Auto height for center images */
+  }
+  
+  p {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  
